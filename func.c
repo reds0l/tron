@@ -3,5 +3,5 @@
 
 void helloTron()
 {
-    printf("Hello Tron!");
+    printf("Hello tron!");
 }
