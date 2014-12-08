@@ -3,27 +3,24 @@
 //
 //
 #include "gfx3.h"
+#include "func.h"
 #include <stdio.h>
-#define WIDTH 500
-enum Orientation{
-    up,
-    down,
-    left,
-    right,
-};
-
-typedef struct lightCycle {
-    int x;
-    int y;
-    enum Orientation orientation;
-    int isAlive;
-} lightCycle;
-
-void moveBike(lightCycle *cycle);
-void plotBike(lightCycle *cycle);
-
 int main()
 {
+    int offset = 50;
+    int xsize = 500;
+    int ysize = 500;
+    int xBoxSize = xsize - offset;
+    int yBoxSize = ysize - offset;
+
+    gfx_open(xsize, ysize, "Tron");
+
+    // Plot boundaries
+    gfx_line(offset, offset, xBoxSize, offset);
+    gfx_line(offset, offset, offset, yBoxSize);
+    gfx_line(offset, yBoxSize, xBoxSize, yBoxSize);
+    gfx_line(xBoxSize, offset, xBoxSize, yBoxSize);
+
     // moveBike
 
     //    plotBike(cycle1);
@@ -31,22 +28,3 @@ int main()
     return 0;
 }
 
-void plotBike(struct lightCycle *cycle)
-{
-    int r=2;
-    gfx_circle(cycle->x, cycle->y, r);
-    switch (cycle->orientation){
-        case up:
-            gfx_triangle(cycle->x-r, cycle->y+r, cycle->x+r, cycle->y+r, cycle->x, cycle->y+2*r);
-            break;
-        case down:
-            gfx_triangle(cycle->x-r, cycle->y-r, cycle->x+r, cycle->y-r, cycle->x, cycle->y-2*r);
-            break;
-        case left:
-            gfx_triangle(cycle->x+r, cycle->y-r, cycle->x+r, cycle->y+r, cycle->x+2*r, cycle->y);
-            break;
-        case right:
-            gfx_triangle(cycle->x-r, cycle->y+r, cycle->x-r, cycle->y+r, cycle->x-2*r, cycle->y);
-            break;
-    }
-}
