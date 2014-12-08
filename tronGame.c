@@ -3,26 +3,7 @@
 //
 //
 
-#include "gfx3.h"
-#include <stdio.h>
-
-enum Orientation{
-    up,
-    down,
-    left,
-    right,
-};
-
-typedef struct lightCycle {
-    int x;
-    int y;
-    enum Orientation orientation;
-    int isAlive;
-} lightCycle;
-
-void moveBike(lightCycle *cycle);
-void plotBike(lightCycle *cycle);
-
+#include "func.h"
 
 int main()
 {
@@ -40,9 +21,6 @@ int main()
     gfx_line(offset, offset, offset, yBoxSize);
     gfx_line(offset, yBoxSize, xBoxSize, yBoxSize);
     gfx_line(xBoxSize, offset, xBoxSize, yBoxSize);
-
-
-
 
     // moveBike
 
