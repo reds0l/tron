@@ -3,9 +3,9 @@
 //
 //
 
-#include <stdio.h>
+#include "func.h"
 
 int main()
 {
-    printf("Initial tron driver");
+    helloTron();
 }
