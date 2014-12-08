@@ -20,5 +20,5 @@ typedef struct lightCycle {
     int isAlive;
 } lightCycle;
 
-void moveBike(lightCycle *cycle);
+void moveBike(lightCycle *cycle, int board[][450]);
 void plotBike(lightCycle *cycle);
