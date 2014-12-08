@@ -3,9 +3,11 @@
 //
 //
 
-#include "func.h"
+#include "gfx3.h"
+#include <stdio.h>
 
 int main()
 {
-    helloTron();
+    printf("hi");
+    return 0;
 }
