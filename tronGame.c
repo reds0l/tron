@@ -20,8 +20,17 @@ typedef struct lightCycle {
     int isAlive;
 } lightCycle;
 
+void moveBike(lightCycle *cycle);
+void plotBike(lightCycle *cycle);
+
+
 int main()
 {
-    printf("hi");
+    // moveBike
+
+
+
+
+    // plotBike
     return 0;
 }
