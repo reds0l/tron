@@ -2,9 +2,8 @@
 // Maintainer: Charles Shinaver, Jared Rodgers
 //
 //
-#include "gfx3.h"
 #include "func.h"
-#include <stdio.h>
+
 int main()
 {
     int offset = 50;

@@ -5,6 +5,7 @@
 
 #include "gfx3.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 enum Orientation{
     up,
