@@ -2,9 +2,9 @@
 // Maintainer: Charles Shinaver, Jared Rodgers
 //
 //
-
+#include "gfx3.h"
 #include "func.h"
-
+#include <stdio.h>
 int main()
 {
     int offset = 50;
@@ -12,7 +12,6 @@ int main()
     int ysize = 500;
     int xBoxSize = xsize - offset;
     int yBoxSize = ysize - offset;
-
 
     gfx_open(xsize, ysize, "Tron");
 
@@ -24,7 +23,8 @@ int main()
 
     // moveBike
 
-
-    // plotBike
+    //    plotBike(cycle1);
+    //    plotBike(cycle2);
     return 0;
 }
+
