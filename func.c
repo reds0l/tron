@@ -5,7 +5,7 @@
 
 #include "func.h"
 
-void moveBike(lightCycle *cycle, double dt, int board[450][450])
+void moveBike(LightCycle *cycle, double dt, int board[450][450])
 {
     /*
      * Checks for collision, moves bike, and adds trail behind
@@ -114,9 +114,10 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
 
 }
 
-void plotBike(lightCycle *cycle)
+void plotBike(LightCycle *cycle, Color bikeColor)
 {
     int r = cycle->radius;
+    gfx_color(bikeColor.r, bikeColor.g, bikeColor.b);
     gfx_circle(cycle->x, cycle->y, r);
     switch (cycle->orientation){
         case up:
@@ -142,6 +143,9 @@ void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBo
     */
 
     int i;
+
+    // Choose whether to plot bike or remove old plot
+    
     
     gfx_line(xTopLeft, yTopLeft, xBottomRight, xTopLeft);
     for (i = xTopLeft; i < xBottomRight; i++)

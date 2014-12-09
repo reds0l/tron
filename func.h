@@ -9,20 +9,29 @@
 #include <unistd.h>
 
 enum Orientation{
+    right = 1,
     up,
     down,
     left,
-    right,
 };
 
-typedef struct lightCycle {
+typedef struct Color {
+    int r;
+    int g;
+    int b;
+} Color;
+
+typedef struct LightCycle {
     double x;
     double y;
     enum Orientation orientation;
     int isAlive;
     int radius;
-} lightCycle;
+    Color color;
+} LightCycle;
 
-void moveBike(lightCycle *cycle, double dt, int board[450][450]);
-void plotBike(lightCycle *cycle);
+
+void moveBike(LightCycle *cycle, double dt, int board[450][450]);
+void plotBike(LightCycle *cycle, Color bikeColor);
+void removeOldBike(LightCycle *cycle, double dt, Color colorForReplacing);
 void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[450][450]);

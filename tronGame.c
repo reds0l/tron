@@ -7,18 +7,28 @@
 int main()
 {
     int i;
+    char c;
+    double dt = .1;
+    Color black = {0, 0, 0};
+    Color white = {255, 255, 255};
+    Color bike1Color = {125, 125, 125};
+    // Box Dimensions
     int offset = 50;
     int xsize = 500;
     int ysize = 500;
     int xBoxSize = xsize - offset;
     int yBoxSize = ysize - offset;
-    lightCycle *cycle1 = malloc(sizeof(lightCycle));
+    int board[450][450] = {0};
+
+    // Create cycle1
+    LightCycle *cycle1 = malloc(sizeof(LightCycle));
     cycle1->x = 425;
     cycle1->y = 70;
     cycle1->orientation = left;
     cycle1->isAlive = 1;
     cycle1->radius = 2;
-    int board[450][450] = {0};
+    cycle1->color = bike1Color;
+
 
     gfx_open(xsize, ysize, "Tron");
 
@@ -28,9 +38,40 @@ int main()
 
     while(1)
     {
+        if (gfx_event_waiting())
+        {
+            c = gfx_wait();
+            switch (c)
+            {
+                case 'k':
+                    if (cycle1->orientation == 4)
+                    {
+                        cycle1->orientation = 1;
+                    }
+                    else 
+                    {
+                        cycle1->orientation++;
+                    }
+                    break;
+                case 'j':
+                    if (cycle1->orientation == 1)
+                    {
+                        cycle1->orientation = 4;
+                    }
+                    else 
+                    {
+                        cycle1->orientation--;
+                    }
+                    break;
+                case 'q':
+                    return 0;
+
+            } 
+        }
+
         // moveBike
-        moveBike(cycle1, .1, board);
-        plotBike(cycle1);
+        moveBike(cycle1, dt, board);
+        plotBike(cycle1, cycle1->color);
 
         usleep(500);
         
