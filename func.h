@@ -16,12 +16,12 @@ enum Orientation{
 };
 
 typedef struct lightCycle {
-    int x;
-    int y;
+    double x;
+    double y;
     enum Orientation orientation;
     int isAlive;
 } lightCycle;
 
-void moveBike(lightCycle *cycle, int board[450][450]);
+void moveBike(lightCycle *cycle, double dt, int board[450][450]);
 void plotBike(lightCycle *cycle);
 void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[450][450]);

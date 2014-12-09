@@ -28,10 +28,11 @@ int main()
     while(1)
     {
         // moveBike
-        moveBike(cycle1, board);
+        moveBike(cycle1, .1, board);
         plotBike(cycle1);
+
+        usleep(500);
         
-        usleep(2000);
     }
 
 

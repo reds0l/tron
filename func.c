@@ -5,7 +5,7 @@
 
 #include "func.h"
 
-void moveBike(lightCycle *cycle, int board[450][450])
+void moveBike(lightCycle *cycle, double dt, int board[450][450])
 {
     /*
      * Checks for collision, moves bike, and adds trail behind
@@ -19,11 +19,11 @@ void moveBike(lightCycle *cycle, int board[450][450])
             {
                 return;
             }
-            cycle->y -= 1;
+            cycle->y -= 1*dt;
 
             // Collision Checking
             //TODO Possibly check line in front of cycle
-            if (board[cycle->x][cycle->y])
+            if (board[(int)cycle->x][(int)cycle->y] != 0)
             {
                 cycle->isAlive = 0;
             }
@@ -37,11 +37,11 @@ void moveBike(lightCycle *cycle, int board[450][450])
             {
                 return;
             }
-            cycle->y += 1;
+            cycle->y += 1*dt;
 
             // Collision Checking
             //TODO Possibly check line in front of cycle
-            if (board[cycle->x][cycle->y])
+            if (board[(int)cycle->x][(int)cycle->y])
             {
                 cycle->isAlive = 0;
             }
@@ -55,11 +55,11 @@ void moveBike(lightCycle *cycle, int board[450][450])
             {
                 return;
             }
-            cycle->x -= 1;
+            cycle->x -= 1*dt;
 
             // Collision Checking
             //TODO Possibly check line in front of cycle
-            if (board[cycle->x][cycle->y])
+            if (board[(int)cycle->x][(int)cycle->y])
             {
                 cycle->isAlive = 0;
             }
@@ -73,11 +73,11 @@ void moveBike(lightCycle *cycle, int board[450][450])
             {
                 return;
             }
-            cycle->x += 1;
+            cycle->x += 1*dt;
 
             // Collision Checking
             //TODO Possibly check line in front of cycle
-            if (board[cycle->x][cycle->y])
+            if (board[(int)cycle->x][(int)cycle->y])
             {
                 cycle->isAlive = 0;
             }
