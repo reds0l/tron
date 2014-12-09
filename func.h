@@ -9,10 +9,10 @@
 #include <unistd.h>
 
 enum Orientation{
-    right = 1,
+    left,
+    right,
     up,
     down,
-    left,
 };
 
 typedef struct Color {
@@ -35,3 +35,4 @@ void moveBike(LightCycle *cycle, double dt, int board[450][450]);
 void plotBike(LightCycle *cycle, Color bikeColor);
 void removeOldBike(LightCycle *cycle, double dt, Color colorForReplacing);
 void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[450][450]);
+char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2);

@@ -173,3 +173,35 @@ void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBo
         board[xBottomRight][i] = 1;
     }
 }
+
+char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
+{
+    /*
+     * Checks for keyboard input and deals with it accordingly
+    */
+
+    char c;
+    if (gfx_event_waiting())
+    {
+        c = gfx_wait();
+        switch (c)
+        {
+            case 'j':
+                cycle1->orientation = left;
+                break;
+            case 'k':
+                cycle1->orientation = down;
+                break;
+            case 'i':
+                cycle1->orientation = up;
+                break;
+            case 'l':
+                cycle1->orientation = right;
+                break;
+            case 'q':
+                return 'q';
+
+        } 
+    }
+}
+

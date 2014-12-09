@@ -38,35 +38,9 @@ int main()
 
     while(1)
     {
-        if (gfx_event_waiting())
+        if (checkForKeyboardInput(cycle1, cycle1) == 'q')
         {
-            c = gfx_wait();
-            switch (c)
-            {
-                case 'k':
-                    if (cycle1->orientation == 4)
-                    {
-                        cycle1->orientation = 1;
-                    }
-                    else 
-                    {
-                        cycle1->orientation++;
-                    }
-                    break;
-                case 'j':
-                    if (cycle1->orientation == 1)
-                    {
-                        cycle1->orientation = 4;
-                    }
-                    else 
-                    {
-                        cycle1->orientation--;
-                    }
-                    break;
-                case 'q':
-                    return 0;
-
-            } 
+            return 0;
         }
 
         // moveBike
