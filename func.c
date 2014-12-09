@@ -10,6 +10,10 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
     /*
      * Checks for collision, moves bike, and adds trail behind
     */
+    int i, iMax;
+    int x = cycle->x;
+    int y = cycle->y;
+    int r = cycle->radius;
 
     switch (cycle->orientation)
     {
@@ -22,10 +26,15 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
             cycle->y -= 1*dt;
 
             // Collision Checking
-            //TODO Possibly check line in front of cycle
-            if (board[(int)cycle->x][(int)cycle->y] != 0)
+            i = x - r;
+            iMax = x + r;
+            for (; i < iMax; i++)
             {
-                cycle->isAlive = 0;
+                if (board[i][y] != 0)
+                {
+                    cycle->isAlive = 0;
+                    return;
+                }
             }
 
             // Add trail
@@ -40,10 +49,15 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
             cycle->y += 1*dt;
 
             // Collision Checking
-            //TODO Possibly check line in front of cycle
-            if (board[(int)cycle->x][(int)cycle->y])
+            i = x - r;
+            iMax = x + r;
+            for (; i < iMax; i++)
             {
-                cycle->isAlive = 0;
+                if (board[i][y] != 0)
+                {
+                    cycle->isAlive = 0;
+                    return;
+                }
             }
 
             // Add trail
@@ -58,10 +72,15 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
             cycle->x -= 1*dt;
 
             // Collision Checking
-            //TODO Possibly check line in front of cycle
-            if (board[(int)cycle->x][(int)cycle->y])
+            i = y - r;
+            iMax = y + r;
+            for (; i < iMax; i++)
             {
-                cycle->isAlive = 0;
+                if (board[x][i] != 0)
+                {
+                    cycle->isAlive = 0;
+                    return;
+                }
             }
 
             // Add trail
@@ -76,10 +95,15 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
             cycle->x += 1*dt;
 
             // Collision Checking
-            //TODO Possibly check line in front of cycle
-            if (board[(int)cycle->x][(int)cycle->y])
+            i = y - r;
+            iMax = y + r;
+            for (; i < iMax; i++)
             {
-                cycle->isAlive = 0;
+                if (board[x][i] != 0)
+                {
+                    cycle->isAlive = 0;
+                    return;
+                }
             }
 
             // Add trail
