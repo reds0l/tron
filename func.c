@@ -92,7 +92,7 @@ void moveBike(lightCycle *cycle, double dt, int board[450][450])
 
 void plotBike(lightCycle *cycle)
 {
-    int r=2;
+    int r = cycle->radius;
     gfx_circle(cycle->x, cycle->y, r);
     switch (cycle->orientation){
         case up:

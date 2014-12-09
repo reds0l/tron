@@ -17,6 +17,7 @@ int main()
     cycle1->y = 70;
     cycle1->orientation = left;
     cycle1->isAlive = 1;
+    cycle1->radius = 2;
     int board[450][450] = {0};
 
     gfx_open(xsize, ysize, "Tron");

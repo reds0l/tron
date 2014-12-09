@@ -20,6 +20,7 @@ typedef struct lightCycle {
     double y;
     enum Orientation orientation;
     int isAlive;
+    int radius;
 } lightCycle;
 
 void moveBike(lightCycle *cycle, double dt, int board[450][450]);
