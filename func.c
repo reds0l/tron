@@ -270,7 +270,11 @@ int isBikeDead(LightCycle *cycle1, LightCycle *cycle2)
      * Returns cycle number if cycle has died, else returns 0
     */
 
-    if (!cycle1->isAlive)
+    if (!cycle1->isAlive && !cycle2->isAlive)
+    {
+        return 3;
+    }
+    else if (!cycle1->isAlive)
     {
         return 1;
     }
@@ -289,8 +293,11 @@ void incrementScoreboard(int deadBikeNumber, Scoreboard *scoreboard)
     /*
      * Increments scoreboard based on bike that died
     */
-
-    if (deadBikeNumber == 1)
+    if (deadBikeNumber == 3)
+    {
+        return;    
+    }
+    else if (deadBikeNumber == 1)
     {
         scoreboard->player2Score+= 1;
     }
@@ -308,7 +315,13 @@ int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1
 
     char c;
 
-    if (cycle1->isAlive)
+    if (!cycle2->isAlive && !cycle1->isAlive)
+    {
+        gfx_color(255, 255, 255);
+        gfx_text(250, 20, "It's a tie!");
+        gfx_text(250, 40, "Press n for new round. Press q to quit");
+    }
+    else if (cycle1->isAlive)
     {
         gfx_color(cycle1->color.r, cycle1->color.g, cycle1->color.b);
         gfx_text(250, 20, "Yellow player wins!");
