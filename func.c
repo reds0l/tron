@@ -198,6 +198,18 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
             case 'l':
                 cycle1->orientation = right;
                 break;
+            case 'a':
+                cycle2->orientation = left;
+                break;
+            case 's':
+                cycle2->orientation = down;
+                break;
+            case 'w':
+                cycle2->orientation = up;
+                break;
+            case 'd':
+                cycle2->orientation = right;
+                break;
             case 'q':
                 return 'q';
 
