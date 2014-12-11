@@ -38,7 +38,7 @@ void moveBike(LightCycle *cycle, double dt, int board[450][450])
             }
 
             // Add trail
-            //TODO write add trail part
+            board[(int)cycle->x][(int)(cycle->y + 1)] = 1;
             break;
         case down:
             // Movement
@@ -61,7 +61,7 @@ void moveBike(LightCycle *cycle, double dt, int board[450][450])
             }
 
             // Add trail
-            //TODO write add trail part
+            board[(int)cycle->x][(int)(cycle->y - 1)] = 1;
             break;
         case left:
             // Movement
@@ -84,7 +84,7 @@ void moveBike(LightCycle *cycle, double dt, int board[450][450])
             }
 
             // Add trail
-            //TODO write add trail part
+            board[(int)(cycle->x + 1)][(int)cycle->y] = 1;
             break;
         case right:
             // Movement
@@ -107,7 +107,7 @@ void moveBike(LightCycle *cycle, double dt, int board[450][450])
             }
 
             // Add trail
-            //TODO write add trail part
+            board[(int)(cycle->x - 1)][(int)cycle->y] = 1;
             break;
     }
     
@@ -188,27 +188,35 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
         {
             case 'j':
                 cycle1->orientation = left;
+                cycle1->x -= 1;
                 break;
             case 'k':
                 cycle1->orientation = down;
+                cycle1->y += 1;
                 break;
             case 'i':
                 cycle1->orientation = up;
+                cycle1->y -= 1;
                 break;
             case 'l':
                 cycle1->orientation = right;
+                cycle1->x += 1;
                 break;
             case 'a':
                 cycle2->orientation = left;
+                cycle2->x -= 1;
                 break;
             case 's':
                 cycle2->orientation = down;
+                cycle2->y += 1;
                 break;
             case 'w':
                 cycle2->orientation = up;
+                cycle2->y -= 1;
                 break;
             case 'd':
                 cycle2->orientation = right;
+                cycle2->x += 1;
                 break;
             case 'q':
                 return 'q';
