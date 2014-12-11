@@ -14,6 +14,7 @@ int main()
     Color white = {255, 255, 255};
     Color bike1Color = {255, 255, 0};
     Color bike2Color = {0, 102, 204};
+    int scoreboard[2] = {0};
     // Box Dimensions
     int offset = 50;
     int xsize = 800;

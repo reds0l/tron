@@ -135,7 +135,7 @@ void plotBike(LightCycle *cycle, Color bikeColor)
     }
 }
 
-void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[750][750])
+void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, Color boardColor, int board[750][750])
 {
     /*
      * Adds ones based on board boundaries for Collision checking
@@ -144,8 +144,7 @@ void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBo
 
     int i;
 
-    // Choose whether to plot bike or remove old plot
-    
+    gfx_color(boardColor.r, boardColor.g, boardColor.b);
     
     gfx_line(xTopLeft, yTopLeft, xBottomRight, xTopLeft);
     for (i = xTopLeft; i < xBottomRight; i++)
@@ -242,6 +241,22 @@ int isBikeDead(LightCycle *cycle1, LightCycle *cycle2)
     else
     {
         return 0;
+    }
+}
+
+void incrementScoreboard(int deadBikeNumber, int scoreboard[2])
+{
+    /*
+     * Increments scoreboard based on bike that died
+    */
+
+    if (deadBikeNumber == 1)
+    {
+        scoreboard[0] += 1;
+    }
+    else if(deadBikeNumber == 2)
+    {
+        scoreboard[1] += 1;
     }
 }
 
