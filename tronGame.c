@@ -52,7 +52,7 @@ int main()
 
     // Plot boundaries and add to board
     createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, white, board);
-    //createScoreboard(scoreboard);
+    createScoreboard(scoreboard);
 
     while(1)
     {
