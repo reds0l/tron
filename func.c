@@ -5,6 +5,10 @@
 
 #include "func.h"
 
+// Board size
+static int xsize = 750;
+static int ysize = 750;
+
 void moveBike(LightCycle *cycle, double dt, int board[700][700])
 {
     /*
