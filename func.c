@@ -192,56 +192,56 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
         switch (c)
         {
             case 'j':
-                if (cycle1->isAlive)
+                if (cycle1->isAlive && cycle1->orientation != left)
                 {
                     cycle1->orientation = left;
                     cycle1->x -= r1+1;
                 }
                 break;
             case 'k':
-                if (cycle1->isAlive)
+                if (cycle1->isAlive && cycle1->orientation != down)
                 {
                     cycle1->orientation = down;
                     cycle1->y += r1+1;
                 }
                 break;
             case 'i':
-                if (cycle1->isAlive)
+                if (cycle1->isAlive && cycle1->orientation != up)
                 {
                     cycle1->orientation = up;
                     cycle1->y -= r1+1;
                 }
                 break;
             case 'l':
-                if (cycle1->isAlive)
+                if (cycle1->isAlive && cycle1->orientation != right)
                 {
                     cycle1->orientation = right;
                     cycle1->x += r1+1;
                 }
                 break;
             case 'a':
-                if (cycle2->isAlive)
+                if (cycle2->isAlive && cycle2->orientation != left)
                 {
                     cycle2->orientation = left;
                     cycle2->x -= r2;
                 }
                 break;
             case 's':
-                if (cycle2->isAlive)
+                if (cycle2->isAlive && cycle2->orientation != down )
                 {
                     cycle2->orientation = down;
                     cycle2->y += r2;
                 }
                 break;
             case 'w':
-                if (cycle2->isAlive)
+                if (cycle2->isAlive && cycle2->orientation != up)
                 {
                     cycle2->orientation = up;
                     cycle2->y -= r2;
                 }
                 break;
             case 'd':
-                if (cycle2->isAlive)
+                if (cycle2->isAlive && cycle2->orientation != right)
                 {
                     cycle2->orientation = right;
                     cycle2->x += r2;
