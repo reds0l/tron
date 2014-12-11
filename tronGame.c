@@ -75,7 +75,7 @@ int main()
             }
         }
 
-        if (checkForKeyboardInput(cycle1, cycle2) == 'q')
+        else if (checkForKeyboardInput(cycle1, cycle2) == 'q')
         {
             return 0;
         }

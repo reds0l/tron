@@ -288,11 +288,11 @@ void incrementScoreboard(int deadBikeNumber, Scoreboard *scoreboard)
 
     if (deadBikeNumber == 1)
     {
-        scoreboard->player1Score += 1;
+        scoreboard->player2Score+= 1;
     }
     else if(deadBikeNumber == 2)
     {
-        scoreboard->player2Score+= 1;
+        scoreboard->player1Score += 1;
     }
 }
 
@@ -317,23 +317,28 @@ int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1
         gfx_text(250, 40, "Press n for new round. Press q to quit");
     }
     
-    c = gfx_wait();
-    switch (c)
+    while (1)
     {
-        case 'n':
-            cycle1->x = xInitialCycle1;
-            cycle1->y = yInitialCycle1;
-            cycle2->x = xInitialCycle2;
-            cycle2->y = yInitialCycle2;
-            cycle1->isAlive = 1;
-            cycle2->isAlive = 1;
-            cycle1->orientation = left;
-            cycle2->orientation = right;
-            return 1;
-            break;
-        case 'q':
-            return 0;
-            break;
+        c = gfx_wait();
+        switch (c)
+        {
+            case 'n':
+                cycle1->x = xInitialCycle1;
+                cycle1->y = yInitialCycle1;
+                cycle2->x = xInitialCycle2;
+                cycle2->y = yInitialCycle2;
+                cycle1->isAlive = 1;
+                cycle2->isAlive = 1;
+                cycle1->orientation = left;
+                cycle2->orientation = right;
+                return 1;
+                break;
+            case 'q':
+                return 0;
+                break;
+            default:
+                continue;
+        }
     }
 }
 
