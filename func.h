@@ -46,3 +46,5 @@ void incrementScoreboard(int deadBikeNumber, Scoreboard *scoreboard);
 int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1, int yInitialCycle1, int xInitialCycle2, int yInitialCycle2);
 void clearBoard(int board[700][700]);
 void createScoreboard(Scoreboard *score);
+void countdown(char *text);
+void changeFontSize(int fontSize);
