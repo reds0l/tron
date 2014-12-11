@@ -31,8 +31,8 @@ typedef struct LightCycle {
 } LightCycle;
 
 
-void moveBike(LightCycle *cycle, double dt, int board[450][450]);
+void moveBike(LightCycle *cycle, double dt, int board[750][750]);
 void plotBike(LightCycle *cycle, Color bikeColor);
 void removeOldBike(LightCycle *cycle, double dt, Color colorForReplacing);
-void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[450][450]);
+void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[750][750]);
 char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2);

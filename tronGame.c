@@ -15,11 +15,11 @@ int main()
     Color bike2Color = {0, 102, 204};
     // Box Dimensions
     int offset = 50;
-    int xsize = 500;
-    int ysize = 500;
+    int xsize = 800;
+    int ysize = 800;
     int xBoxSize = xsize - offset;
     int yBoxSize = ysize - offset;
-    int board[450][450] = {0};
+    int board[750][750] = {0};
 
     // Create cycle1
     LightCycle *cycle1 = malloc(sizeof(LightCycle));

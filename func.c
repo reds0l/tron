@@ -5,7 +5,7 @@
 
 #include "func.h"
 
-void moveBike(LightCycle *cycle, double dt, int board[450][450])
+void moveBike(LightCycle *cycle, double dt, int board[750][750])
 {
     /*
      * Checks for collision, moves bike, and adds trail behind
@@ -135,7 +135,7 @@ void plotBike(LightCycle *cycle, Color bikeColor)
     }
 }
 
-void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[450][450])
+void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[750][750])
 {
     /*
      * Adds ones based on board boundaries for Collision checking
