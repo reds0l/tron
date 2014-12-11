@@ -6,7 +6,8 @@
 
 int main()
 {
-    int i;
+    srand ( time(NULL) );
+    int i,quit;
     int deadBikeNumber;
     char c;
     double dt = .1;
@@ -49,6 +50,11 @@ int main()
 
 
     gfx_open(xsize, ysize, "Tron");
+    quit=createMenu();
+    if (quit==1)
+    {
+        return 0;
+    }
 
     // Plot boundaries and add to board
     createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, white, board);

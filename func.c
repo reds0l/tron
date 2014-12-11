@@ -387,4 +387,48 @@ void changeFontSize(int fontSize)
     sprintf(fontStr, "-*-helvetica-medium-r-normal-*-%i-120-*-*-*-*-iso8859-1", fontSize);
     change_font(fontStr);
 }
+int randNum (int min, int max)
+{
+    return rand()%((max-min+1)+min);
+}
 
+int createMenu(void)
+{
+    char c='1';
+    gfx_clear();
+    while(1)
+    {
+        changeFontSize(12);
+        gfx_color(255,255,255);
+        gfx_text(25,25, "Bike one controls:   "
+                        "W = up   "
+                        "A = left   "
+                        "S = down   "
+                        "D = right   ");
+        gfx_text(25,45, "Bike two controls:   "
+                        "I = up   "
+                        "J = left   "
+                        "K = down   "
+                        "L = right   ");
+        changeFontSize(20);
+        gfx_text(xsize/2, ysize/2+50, "Press n to start a new game");
+        changeFontSize(80);
+        gfx_color(randNum(0,255),randNum(0,255),randNum(0,255));
+        gfx_text(xsize/2, ysize/2, "TRON");
+        usleep(700000);
+        if (gfx_event_waiting())
+        {
+            c = gfx_wait();
+        }
+        if (c=='n')
+        {
+            changeFontSize(12);
+            gfx_clear();
+            return 0;
+        }
+        if (c=='q')
+        {
+            return 1;
+        }
+    }
+}

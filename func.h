@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 enum Orientation{
     left,
@@ -48,3 +49,4 @@ void clearBoard(int board[700][700]);
 void createScoreboard(Scoreboard *score);
 void countdown(char *text);
 void changeFontSize(int fontSize);
+int createMenu(void);
