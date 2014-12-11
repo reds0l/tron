@@ -180,42 +180,68 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
     */
 
     char c;
+    int r1 = cycle1->radius;
+    int r2 = cycle2->radius;
     if (gfx_event_waiting())
     {
         c = gfx_wait();
         switch (c)
         {
             case 'j':
-                cycle1->orientation = left;
-                cycle1->x -= 1;
+                if (cycle1->isAlive)
+                {
+                    cycle1->orientation = left;
+                    cycle1->x -= r1+1;
+                }
                 break;
             case 'k':
-                cycle1->orientation = down;
-                cycle1->y += 1;
+                if (cycle1->isAlive)
+                {
+                    cycle1->orientation = down;
+                    cycle1->y += r1+1;
+                }
                 break;
             case 'i':
-                cycle1->orientation = up;
-                cycle1->y -= 1;
+                if (cycle1->isAlive)
+                {
+                    cycle1->orientation = up;
+                    cycle1->y -= r1+1;
+                }
                 break;
             case 'l':
-                cycle1->orientation = right;
-                cycle1->x += 1;
+                if (cycle1->isAlive)
+                {
+                    cycle1->orientation = right;
+                    cycle1->x += r1+1;
+                }
                 break;
             case 'a':
-                cycle2->orientation = left;
-                cycle2->x -= 1;
+                if (cycle2->isAlive)
+                {
+                    cycle2->orientation = left;
+                    cycle2->x -= r2;
+                }
                 break;
             case 's':
-                cycle2->orientation = down;
-                cycle2->y += 1;
+                if (cycle2->isAlive)
+                {
+                    cycle2->orientation = down;
+                    cycle2->y += r2;
+                }
                 break;
             case 'w':
-                cycle2->orientation = up;
-                cycle2->y -= 1;
+                if (cycle2->isAlive)
+                {
+                    cycle2->orientation = up;
+                    cycle2->y -= r2;
+                }
                 break;
             case 'd':
-                cycle2->orientation = right;
-                cycle2->x += 1;
+                if (cycle2->isAlive)
+                {
+                    cycle2->orientation = right;
+                    cycle2->x += r2;
+                }
                 break;
             case 'q':
                 return 'q';
