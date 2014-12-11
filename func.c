@@ -426,7 +426,7 @@ int createMenu(void)
             gfx_clear();
             return 0;
         }
-        if (c=='q')
+        else if (c=='q')
         {
             return 1;
         }
