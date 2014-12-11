@@ -5,6 +5,10 @@
 
 #include "func.h"
 
+// Board size
+static int xsize = 750;
+static int ysize = 750;
+
 void moveBike(LightCycle *cycle, double dt, int board[700][700])
 {
     /*
@@ -356,3 +360,18 @@ void clearBoard(int board[700][700])
         }
     }
 }
+
+void countdown(char *text)
+{
+}
+
+void changeFontSize(int fontSize)
+{
+    /*
+     * Displays text with given font size
+    */
+    char fontStr[50];
+    sprintf(fontStr, "-*-helvetica-medium-r-normal-*-%i-120-*-*-*-*-iso8859-1", fontSize);
+    change_font(fontStr);
+}
+
