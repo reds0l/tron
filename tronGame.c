@@ -14,7 +14,9 @@ int main()
     Color white = {255, 255, 255};
     Color bike1Color = {255, 255, 0};
     Color bike2Color = {0, 102, 204};
-    int scoreboard[2] = {0};
+    Scoreboard *scoreboard = malloc(sizeof(Scoreboard));
+    scoreboard->player1Score = 0;
+    scoreboard->player2Score = 0;
     // Box Dimensions
     int offset = 50;
     int xsize = 800;
@@ -50,7 +52,7 @@ int main()
 
     // Plot boundaries and add to board
     createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, white, board);
-    createScoreboard(scoreboard);
+    //createScoreboard(scoreboard);
 
     while(1)
     {

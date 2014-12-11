@@ -250,12 +250,12 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
     }
 }
 
-void createScoreboard (int score[])
+void createScoreboard(Scoreboard *score)
 {
     char yellow[35] = "Yellow Player's Score: "; 
     char blue[35] = "Blue Player's Score: ";
-    sprintf(yellow, "%s%i", yellow, score[0]);
-    sprintf(blue, "%s%i", blue, score[1]);
+    sprintf(yellow, "%s%i", yellow, score->player1Score);
+    sprintf(blue, "%s%i", blue, score->player2Score);
     gfx_text(550, 20, yellow); 
     gfx_text(550, 40, blue);
 }
@@ -280,7 +280,7 @@ int isBikeDead(LightCycle *cycle1, LightCycle *cycle2)
     }
 }
 
-void incrementScoreboard(int deadBikeNumber, int scoreboard[2])
+void incrementScoreboard(int deadBikeNumber, Scoreboard *scoreboard)
 {
     /*
      * Increments scoreboard based on bike that died
@@ -288,11 +288,11 @@ void incrementScoreboard(int deadBikeNumber, int scoreboard[2])
 
     if (deadBikeNumber == 1)
     {
-        scoreboard[0] += 1;
+        scoreboard->player1Score += 1;
     }
     else if(deadBikeNumber == 2)
     {
-        scoreboard[1] += 1;
+        scoreboard->player2Score+= 1;
     }
 }
 
