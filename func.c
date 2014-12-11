@@ -251,3 +251,10 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
     }
 }
 
+void createScoreboard (int score[])
+{
+    char yellow[35] = "Yellow Player's Score:"; 
+    char blue[35] = "Blue Player's Score:";
+    gfx_text(400, 20, yellow); 
+    gfx_text(410, 20, blue);
+}
