@@ -36,13 +36,13 @@ typedef struct Scoreboard {
 } Scoreboard;
 
 
-void moveBike(LightCycle *cycle, double dt, int board[750][750]);
+void moveBike(LightCycle *cycle, double dt, int board[700][700]);
 void plotBike(LightCycle *cycle, Color bikeColor);
 void removeOldBike(LightCycle *cycle, double dt, Color colorForReplacing);
-void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, Color boardColor, int board[750][750]);
+void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, Color boardColor, int board[700][700]);
 char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2);
 int isBikeDead(LightCycle *cycle1, LightCycle *cycle2);
 void incrementScoreboard(int deadBikeNumber, Scoreboard *scoreboard);
 int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1, int yInitialCycle1, int xInitialCycle2, int yInitialCycle2);
-void clearBoard(int board[750][750]);
+void clearBoard(int board[700][700]);
 void createScoreboard(Scoreboard *score);

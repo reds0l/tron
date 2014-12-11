@@ -19,29 +19,29 @@ int main()
     scoreboard->player2Score = 0;
     // Box Dimensions
     int offset = 50;
-    int xsize = 800;
-    int ysize = 800;
+    int xsize = 750;
+    int ysize = 750;
     int xBoxSize = xsize - offset;
     int yBoxSize = ysize - offset;
-    int board[750][750] = {0};
+    int board[700][700] = {0};
 
-    int xInitialCycle1 = 425;
-    int yInitialCycle1 = 70;
+    int xInitialCycle1 = xsize-offset-10;
+    int yInitialCycle1 = ysize-offset-25;
     // Create cycle1
     LightCycle *cycle1 = malloc(sizeof(LightCycle));
-    cycle1->x = 425;
-    cycle1->y = 70;
+    cycle1->x = xInitialCycle1;
+    cycle1->y = yInitialCycle1;
     cycle1->orientation = left;
     cycle1->isAlive = 1;
     cycle1->radius = 2;
     cycle1->color = bike1Color;
 
-    int xInitialCycle2 = 225;
-    int yInitialCycle2 = 220;
+    int xInitialCycle2 = offset+10;
+    int yInitialCycle2 = offset+25;
     // Create cycle2
     LightCycle *cycle2 = malloc(sizeof(LightCycle));
-    cycle2->x = 225;
-    cycle2->y = 220;
+    cycle2->x = xInitialCycle2;
+    cycle2->y = yInitialCycle2;
     cycle2->orientation = right;
     cycle2->isAlive = 1;
     cycle2->radius = 2;
