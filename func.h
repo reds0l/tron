@@ -36,3 +36,6 @@ void plotBike(LightCycle *cycle, Color bikeColor);
 void removeOldBike(LightCycle *cycle, double dt, Color colorForReplacing);
 void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[750][750]);
 char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2);
+int isBikeDead(LightCycle *cycle1, LightCycle *cycle2);
+int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1, int yInitialCycle1, int xInitialCycle2, int yInitialCycle2);
+void clearBoard(int board[750][750]);
