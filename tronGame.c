@@ -7,12 +7,14 @@
 int main()
 {
     int i;
+    int deadBikeNumber;
     char c;
     double dt = .1;
     Color black = {0, 0, 0};
     Color white = {255, 255, 255};
     Color bike1Color = {255, 255, 0};
     Color bike2Color = {0, 102, 204};
+    int scoreboard[2] = {0};
     // Box Dimensions
     int offset = 50;
     int xsize = 800;
@@ -21,6 +23,8 @@ int main()
     int yBoxSize = ysize - offset;
     int board[750][750] = {0};
 
+    int xInitialCycle1 = 425;
+    int yInitialCycle1 = 70;
     // Create cycle1
     LightCycle *cycle1 = malloc(sizeof(LightCycle));
     cycle1->x = 425;
@@ -30,6 +34,8 @@ int main()
     cycle1->radius = 2;
     cycle1->color = bike1Color;
 
+    int xInitialCycle2 = 225;
+    int yInitialCycle2 = 220;
     // Create cycle2
     LightCycle *cycle2 = malloc(sizeof(LightCycle));
     cycle2->x = 225;
@@ -43,11 +49,30 @@ int main()
     gfx_open(xsize, ysize, "Tron");
 
     // Plot boundaries and add to board
-    createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, board);
-
+    createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, white, board);
+    createScoreboard(scoreboard);
 
     while(1)
     {
+        // Check if game has ended
+        deadBikeNumber = isBikeDead(cycle1, cycle2);
+        if (deadBikeNumber)
+        {
+            incrementScoreboard(deadBikeNumber, scoreboard);
+            if (!isDesiringNewGame(cycle1, cycle2, xInitialCycle1, yInitialCycle1, xInitialCycle2, yInitialCycle2))
+            {
+                return 0;
+            }
+            else
+            {
+                gfx_clear();
+                clearBoard(board);
+                createBoardBoundaries(offset, offset, xBoxSize, yBoxSize, white, board);
+                createScoreboard(scoreboard);
+                deadBikeNumber = 0;
+            }
+        }
+
         if (checkForKeyboardInput(cycle1, cycle2) == 'q')
         {
             return 0;

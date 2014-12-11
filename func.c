@@ -135,7 +135,7 @@ void plotBike(LightCycle *cycle, Color bikeColor)
     }
 }
 
-void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, int board[750][750])
+void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBottomRight, Color boardColor, int board[750][750])
 {
     /*
      * Adds ones based on board boundaries for Collision checking
@@ -144,8 +144,7 @@ void createBoardBoundaries(int xTopLeft, int yTopLeft, int xBottomRight, int yBo
 
     int i;
 
-    // Choose whether to plot bike or remove old plot
-    
+    gfx_color(boardColor.r, boardColor.g, boardColor.b);
     
     gfx_line(xTopLeft, yTopLeft, xBottomRight, xTopLeft);
     for (i = xTopLeft; i < xBottomRight; i++)
@@ -253,8 +252,104 @@ char checkForKeyboardInput(LightCycle *cycle1, LightCycle *cycle2)
 
 void createScoreboard (int score[])
 {
-    char yellow[35] = "Yellow Player's Score:"; 
-    char blue[35] = "Blue Player's Score:";
-    gfx_text(400, 20, yellow); 
-    gfx_text(410, 20, blue);
+    char yellow[35] = "Yellow Player's Score: "; 
+    char blue[35] = "Blue Player's Score: ";
+    char yellowScoreStr[5];
+    char blueScoreStr[5];
+    sprintf(yellowScoreStr, "%i", score[0]);
+    sprintf(blueScoreStr, "%i", score[1]);
+    gfx_text(550, 20, yellow); 
+    gfx_text(550, 40, blue);
+}
+
+int isBikeDead(LightCycle *cycle1, LightCycle *cycle2)
+{
+    /*
+     * Returns cycle number if cycle has died, else returns 0
+    */
+
+    if (!cycle1->isAlive)
+    {
+        return 1;
+    }
+    else if (!cycle2->isAlive)
+    {
+        return 2;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void incrementScoreboard(int deadBikeNumber, int scoreboard[2])
+{
+    /*
+     * Increments scoreboard based on bike that died
+    */
+
+    if (deadBikeNumber == 1)
+    {
+        scoreboard[0] += 1;
+    }
+    else if(deadBikeNumber == 2)
+    {
+        scoreboard[1] += 1;
+    }
+}
+
+int isDesiringNewGame(LightCycle *cycle1, LightCycle *cycle2, int xInitialCycle1, int yInitialCycle1, int xInitialCycle2, int yInitialCycle2)
+{
+    /*
+     * Asks users if they would like a new game, resets positions if so
+    */
+
+    char c;
+
+    if (cycle1->isAlive)
+    {
+        gfx_color(cycle1->color.r, cycle1->color.g, cycle1->color.b);
+        gfx_text(250, 20, "Yellow player wins!");
+        gfx_text(250, 40, "Press n for new round. Press q to quit");
+    }
+    else if (cycle2->isAlive)
+    {
+        gfx_color(cycle2->color.r, cycle2->color.g, cycle2->color.b);
+        gfx_text(250, 20, "Blue player wins!");
+        gfx_text(250, 40, "Press n for new round. Press q to quit");
+    }
+    
+    c = gfx_wait();
+    switch (c)
+    {
+        case 'n':
+            cycle1->x = xInitialCycle1;
+            cycle1->y = yInitialCycle1;
+            cycle2->x = xInitialCycle2;
+            cycle2->y = yInitialCycle2;
+            cycle1->isAlive = 1;
+            cycle2->isAlive = 1;
+            cycle1->orientation = left;
+            cycle2->orientation = right;
+            return 1;
+            break;
+        case 'q':
+            return 0;
+            break;
+    }
+}
+
+void clearBoard(int board[750][750])
+{
+    /*
+     * fills board with 0's
+    */
+    int i, j;
+    for (i = 0; i < 750; i++)
+    {
+        for (j = 0; j < 750; j++)
+        {
+            board[i][j] = 0;
+        }
+    }
 }
