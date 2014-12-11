@@ -254,10 +254,8 @@ void createScoreboard (int score[])
 {
     char yellow[35] = "Yellow Player's Score: "; 
     char blue[35] = "Blue Player's Score: ";
-    char yellowScoreStr[5];
-    char blueScoreStr[5];
-    sprintf(yellowScoreStr, "%i", score[0]);
-    sprintf(blueScoreStr, "%i", score[1]);
+    sprintf(yellow, "%s%i", yellow, score[0]);
+    sprintf(blue, "%s%i", blue, score[1]);
     gfx_text(550, 20, yellow); 
     gfx_text(550, 40, blue);
 }
