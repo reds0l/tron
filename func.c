@@ -10,7 +10,7 @@ void moveBike(LightCycle *cycle, double dt, int board[750][750])
     /*
      * Checks for collision, moves bike, and adds trail behind
     */
-    int i, iMax;
+    int i, iMax, j;
     int x = cycle->x;
     int y = cycle->y;
     int r = cycle->radius;
@@ -38,7 +38,10 @@ void moveBike(LightCycle *cycle, double dt, int board[750][750])
             }
 
             // Add trail
-            board[(int)cycle->x][(int)(cycle->y + 1)] = 1;
+            for(j=0;j<2*r+1;j++)
+            {
+                board[(int)cycle->x-r+j][(int)(cycle->y + 1)] = 1;
+            }
             break;
         case down:
             // Movement
@@ -61,7 +64,10 @@ void moveBike(LightCycle *cycle, double dt, int board[750][750])
             }
 
             // Add trail
-            board[(int)cycle->x][(int)(cycle->y - 1)] = 1;
+            for(j=0;j<2*r+1;j++)
+            {
+                board[(int)cycle->x-r+j][(int)(cycle->y - 1)] = 1;
+            }
             break;
         case left:
             // Movement
@@ -84,7 +90,10 @@ void moveBike(LightCycle *cycle, double dt, int board[750][750])
             }
 
             // Add trail
-            board[(int)(cycle->x + 1)][(int)cycle->y] = 1;
+            for(j=0;j<2*r+1;j++)
+            {
+                board[(int)(cycle->x + 1)][(int)cycle->y-r+j] = 1;
+            }
             break;
         case right:
             // Movement
@@ -107,7 +116,10 @@ void moveBike(LightCycle *cycle, double dt, int board[750][750])
             }
 
             // Add trail
-            board[(int)(cycle->x - 1)][(int)cycle->y] = 1;
+            for(j=0;j<2*r+1;j++)
+            {
+                board[(int)(cycle->x - 1)][(int)cycle->y-r+j] = 1;
+            }
             break;
     }
     
