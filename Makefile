@@ -1,8 +1,8 @@
 CMP = gcc
-MAIN = tronGame
+MAIN = final
 FUNC = gfx3
 INC = func
-EXEC = tronGame
+EXEC = final
 FLAGS = -lm -lX11
 
 $(EXEC): $(MAIN).o $(FUNC).o $(INC).o
