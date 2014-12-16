@@ -1,0 +1,33 @@
+From the user's perspective upon running the program the menu screen appears
+with a prompt to press the n button to start a new game and the controls are
+displayed in the top. Upon pressing play the Tron game starts with two bikes
+the left most bike is controlled with the wasd keys and the right most bike
+is controled with the ijkl keys. The two players are now able to traverse
+the board until one bike crashes into a wall or one of the trails.(Note
+moving in reverse onto your own trail causes you to lose; this feature
+was implemented purposefully.) When the game ends a point is added to the
+winning bike's score and the user is prompted to press n to start a new game.
+At any point 'q' can be pressed to end the program.
+
+In the actual code, the bikes are created using the struct LightCycle.
+LightCycle has the x and y location of the bike, orientation of the bike,
+and the life status of the bike. The board is a 2d array that corresponds 
+to the the pixels in the boundries. Each value in the
+array is either a 1 or 0. 1 corresponds to a location that is occupied by a
+boundry or a trail from a bike. A zero is an empty space on the board. The
+bike's position is stored in the struct. When the bike moves, it plots a one 
+where its previous position was. It then checks if its new position has a 1 
+(ie collision checking). If there is a collision, 
+then the bike's isAlive property is set to 0. The bike plotting function checks
+if the bike is alive by checking its isAlive property. If it is not alive, the
+bike is not plotted. Also, if the bike is not alive, the bike is not moved. 
+All the movement is based off the orientation of the bike. 
+Every iteration there is a check for keyboard input (which will move the bike
+or quit the program based on the input) and checks for a dead bike. 
+If a bike dies, the scoreboard is incremented and the user is asked for input.
+Only 'n' or 'q' are accepted as input. 
+
+Output was verified through multiple test trials. Problems that were fixed 
+through trials were setting the trail before moving the bike 
+(causing the bike to die prematurely), dying when the bike turned, collisions 
+with the other bike.
