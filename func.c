@@ -383,7 +383,7 @@ void changeFontSize(int fontSize)
     /*
      * Displays text with given font size
     */
-    char fontStr[50];
+    char fontStr[100];
     sprintf(fontStr, "-*-helvetica-medium-r-normal-*-%i-120-*-*-*-*-iso8859-1", fontSize);
     change_font(fontStr);
 }
